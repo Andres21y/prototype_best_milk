@@ -1,0 +1,273 @@
+ :root {
+     --primary-color: #1a1a2e;
+     --secondary-color: whitesmoke;
+     --tertiary-color: #0f3460;
+     /* --accent-color: #ee6322;
+     --light-accent: #ee6322;*/
+     --accent-color: #008be86e;
+     --light-accent: #008ce8;
+     --text-primary: #1a1a2e;
+     --text-secondary: #5f646be5;
+     --success-color: #00d4aa;
+     --warning-color: #ffb347;
+     --error-color: #ff6b6b;
+ }
+
+ body {
+     background-color: var(--primary-color);
+     font-family: 'Roboto', sans-serif;
+     color: var(--text-primary);
+     min-height: 100vh;
+     min-width: 320px;
+ }
+
+ .nav-wrapper {
+     background: var(--secondary-color) !important;
+     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+ }
+
+ .card {
+     background: var(--secondary-color);
+     border: 1px solid rgba(233, 69, 96, 0.2);
+     box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+     backdrop-filter: blur(10px);
+     border-radius: 16px;
+     background-color: #FFFFFF;
+     background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='333.3' viewBox='0 0 1080 900'%3E%3Cg fill-opacity='0.03'%3E%3Cpolygon fill='%23444' points='90 150 0 300 180 300'/%3E%3Cpolygon points='90 150 180 0 0 0'/%3E%3Cpolygon fill='%23AAA' points='270 150 360 0 180 0'/%3E%3Cpolygon fill='%23DDD' points='450 150 360 300 540 300'/%3E%3Cpolygon fill='%23999' points='450 150 540 0 360 0'/%3E%3Cpolygon points='630 150 540 300 720 300'/%3E%3Cpolygon fill='%23DDD' points='630 150 720 0 540 0'/%3E%3Cpolygon fill='%23444' points='810 150 720 300 900 300'/%3E%3Cpolygon fill='%23FFF' points='810 150 900 0 720 0'/%3E%3Cpolygon fill='%23DDD' points='990 150 900 300 1080 300'/%3E%3Cpolygon fill='%23444' points='990 150 1080 0 900 0'/%3E%3Cpolygon fill='%23DDD' points='90 450 0 600 180 600'/%3E%3Cpolygon points='90 450 180 300 0 300'/%3E%3Cpolygon fill='%23666' points='270 450 180 600 360 600'/%3E%3Cpolygon fill='%23AAA' points='270 450 360 300 180 300'/%3E%3Cpolygon fill='%23DDD' points='450 450 360 600 540 600'/%3E%3Cpolygon fill='%23999' points='450 450 540 300 360 300'/%3E%3Cpolygon fill='%23999' points='630 450 540 600 720 600'/%3E%3Cpolygon fill='%23FFF' points='630 450 720 300 540 300'/%3E%3Cpolygon points='810 450 720 600 900 600'/%3E%3Cpolygon fill='%23DDD' points='810 450 900 300 720 300'/%3E%3Cpolygon fill='%23AAA' points='990 450 900 600 1080 600'/%3E%3Cpolygon fill='%23444' points='990 450 1080 300 900 300'/%3E%3Cpolygon fill='%23222' points='90 750 0 900 180 900'/%3E%3Cpolygon points='270 750 180 900 360 900'/%3E%3Cpolygon fill='%23DDD' points='270 750 360 600 180 600'/%3E%3Cpolygon points='450 750 540 600 360 600'/%3E%3Cpolygon points='630 750 540 900 720 900'/%3E%3Cpolygon fill='%23444' points='630 750 720 600 540 600'/%3E%3Cpolygon fill='%23AAA' points='810 750 720 900 900 900'/%3E%3Cpolygon fill='%23666' points='810 750 900 600 720 600'/%3E%3Cpolygon fill='%23999' points='990 750 900 900 1080 900'/%3E%3Cpolygon fill='%23999' points='180 0 90 150 270 150'/%3E%3Cpolygon fill='%23444' points='360 0 270 150 450 150'/%3E%3Cpolygon fill='%23FFF' points='540 0 450 150 630 150'/%3E%3Cpolygon points='900 0 810 150 990 150'/%3E%3Cpolygon fill='%23222' points='0 300 -90 450 90 450'/%3E%3Cpolygon fill='%23FFF' points='0 300 90 150 -90 150'/%3E%3Cpolygon fill='%23FFF' points='180 300 90 450 270 450'/%3E%3Cpolygon fill='%23666' points='180 300 270 150 90 150'/%3E%3Cpolygon fill='%23222' points='360 300 270 450 450 450'/%3E%3Cpolygon fill='%23FFF' points='360 300 450 150 270 150'/%3E%3Cpolygon fill='%23444' points='540 300 450 450 630 450'/%3E%3Cpolygon fill='%23222' points='540 300 630 150 450 150'/%3E%3Cpolygon fill='%23AAA' points='720 300 630 450 810 450'/%3E%3Cpolygon fill='%23666' points='720 300 810 150 630 150'/%3E%3Cpolygon fill='%23FFF' points='900 300 810 450 990 450'/%3E%3Cpolygon fill='%23999' points='900 300 990 150 810 150'/%3E%3Cpolygon points='0 600 -90 750 90 750'/%3E%3Cpolygon fill='%23666' points='0 600 90 450 -90 450'/%3E%3Cpolygon fill='%23AAA' points='180 600 90 750 270 750'/%3E%3Cpolygon fill='%23444' points='180 600 270 450 90 450'/%3E%3Cpolygon fill='%23444' points='360 600 270 750 450 750'/%3E%3Cpolygon fill='%23999' points='360 600 450 450 270 450'/%3E%3Cpolygon fill='%23666' points='540 600 630 450 450 450'/%3E%3Cpolygon fill='%23222' points='720 600 630 750 810 750'/%3E%3Cpolygon fill='%23FFF' points='900 600 810 750 990 750'/%3E%3Cpolygon fill='%23222' points='900 600 990 450 810 450'/%3E%3Cpolygon fill='%23DDD' points='0 900 90 750 -90 750'/%3E%3Cpolygon fill='%23444' points='180 900 270 750 90 750'/%3E%3Cpolygon fill='%23FFF' points='360 900 450 750 270 750'/%3E%3Cpolygon fill='%23AAA' points='540 900 630 750 450 750'/%3E%3Cpolygon fill='%23FFF' points='720 900 810 750 630 750'/%3E%3Cpolygon fill='%23222' points='900 900 990 750 810 750'/%3E%3Cpolygon fill='%23222' points='1080 300 990 450 1170 450'/%3E%3Cpolygon fill='%23FFF' points='1080 300 1170 150 990 150'/%3E%3Cpolygon points='1080 600 990 750 1170 750'/%3E%3Cpolygon fill='%23666' points='1080 600 1170 450 990 450'/%3E%3Cpolygon fill='%23DDD' points='1080 900 1170 750 990 750'/%3E%3C/g%3E%3C/svg%3E");
+ }
+
+ .card-title {
+     color: var(--text-primary) !important;
+     font-weight: 600;
+ }
+
+ .btn {
+     /*color: var(--text-primary) !important;*/
+     border-radius: 10px;
+     color: var(--secondary-color);
+     border: none;
+     font-weight: 500;
+ }
+
+ .btn:hover {
+     background: linear-gradient(45deg, var(--light-accent) 0%, var(--accent-color) 100%) !important;
+     box-shadow: 0 2px 5px var(--text-secondary);
+     transform: translateY(-2px);
+ }
+
+ .input-field input:focus+label,
+ .input-field input:valid+label {
+     color: var(--accent-color) !important;
+ }
+
+ .input-field input:focus {
+     border-bottom: 2px solid var(--accent-color) !important;
+
+ }
+
+ .input-field label {
+     color: var(--text-secondary);
+ }
+
+ .input-field input {
+     color: var(--text-primary);
+     background-color: rgba(255, 255, 255, 0.05);
+     border-radius: 8px;
+     padding: 8px 12px;
+ }
+
+ .input-field .prefix {
+     color: var(--accent-color) !important;
+ }
+
+ .tabs .tab a {
+     color: var(--accent-color) !important;
+ }
+
+ .tabs .tab a:hover {
+     color: var(--light-accent) !important;
+ }
+
+ .tabs .tab a.active {
+     color: var(--text-primary) !important;
+ }
+
+ .tabs .indicator {
+     background-color: var(--accent-color) !important;
+ }
+
+ .error-card {
+     background: linear-gradient(145deg, rgba(255, 107, 107, 0.15) 0%, rgba(255, 107, 107, 0.05) 100%);
+     border: 1px solid var(--error-color);
+     box-shadow: 0 4px 20px rgba(255, 107, 107, 0.2);
+ }
+
+ .success-card {
+     background: linear-gradient(145deg, rgba(0, 212, 170, 0.15) 0%, rgba(0, 212, 170, 0.05) 100%);
+     border: 1px solid var(--success-color);
+     box-shadow: 0 4px 20px rgba(0, 212, 170, 0.2);
+ }
+
+ .warning-card {
+     background: linear-gradient(145deg, rgba(255, 179, 71, 0.15) 0%, rgba(255, 179, 71, 0.05) 100%);
+     border: 1px solid var(--warning-color);
+     box-shadow: 0 4px 20px rgba(255, 179, 71, 0.2);
+ }
+
+ .logo-placeholder {
+     width: 100px;
+     height: 100px;
+     display: flex;
+     align-items: center;
+     justify-content: center;
+     margin: 0 auto 20px;
+ }
+
+ .logo-placeholderw {
+     width: 100px;
+     height: 100px;
+     display: flex;
+     align-items: center;
+     justify-content: center;
+     margin: 0 auto 20px;
+     color: var(--text-primary);
+     font-size: 2rem;
+     border: 3px solid rgba(255, 255, 255, 0.1);
+ }
+
+ .screen {
+     display: none;
+     min-height: 80vh;
+ }
+
+ .screen.active {
+     display: block;
+     padding: 5rem;
+ }
+
+ .responsive-img {
+     height: 30px !important;
+ }
+
+ .component-demo {
+     background: white;
+     border-radius: 12px;
+     padding: 24px;
+     margin: 16px 0;
+     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+ }
+
+ .component-title {
+     font-size: 1.5rem;
+     font-weight: 700;
+     color: #333;
+     margin-bottom: 16px;
+     border-bottom: 2px solid #5c6bc0;
+     padding-bottom: 8px;
+ }
+
+ .code-preview {
+     background: #f8f9fa;
+     border: 1px solid #e9ecef;
+     border-radius: 6px;
+     padding: 16px;
+     font-family: 'Courier New', monospace;
+     font-size: 13px;
+     color: #495057;
+     margin: 12px 0;
+     overflow-x: auto;
+ }
+
+ .file-structure {
+     background: #263238;
+     color: #fff;
+     padding: 20px;
+     border-radius: 8px;
+     font-family: monospace;
+     margin: 20px 0;
+ }
+
+ .usage-example {
+     background: #e8f5e8;
+     border-left: 4px solid #4caf50;
+     padding: 16px;
+     margin: 12px 0;
+ }
+
+ .btn-demo {
+     margin: 8px;
+ }
+
+ /** Hero Section*/
+
+ .hero-section {
+     height: 600px;
+     background: linear-gradient(135deg, rgba(26, 34, 126, 0.637), rgba(63, 81, 181, 0.342)),
+         url('/assets/images/BovinosN.jpg');
+     background-size: contain;
+     background-position: center;
+     background-attachment: fixed;
+     display: flex;
+     align-items: center;
+     position: relative;
+     overflow: hidden;
+ }
+
+ .hero-content {
+     z-index: 2;
+     text-align: center;
+     color: white;
+ }
+
+ .hero-title {
+     font-size: 3.5rem;
+     font-weight: 700;
+     margin-bottom: 1rem;
+     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+     animation: fadeInUp 1s ease-out;
+ }
+
+ .hero-subtitle {
+     font-size: 1.3rem;
+     font-weight: 300;
+     margin-bottom: 2rem;
+     opacity: 0.9;
+     text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+     animation: fadeInUp 1s ease-out 0.3s both;
+ }
+
+ .hero-buttons {
+     animation: fadeInUp 1s ease-out 0.6s both;
+ }
+
+ .btn-hero {
+     margin: 0.5rem;
+     padding: 0 2rem;
+     height: 48px;
+     line-height: 48px;
+     font-size: 1.1rem;
+     text-transform: none;
+     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+     transition: all 0.3s ease;
+ }
+
+ .btn-hero:hover {
+     transform: translateY(-2px);
+     box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+ }
+
+ .btn-primary {
+     background: var(--primary-color);
+ }
+
+ .btn-secondary {
+     background: transparent;
+     border: 2px solid orange;
+     color: orange;
+ }
+
+ .btn-secondary:hover {
+     background: white;
+     color: var(--primary-color);
+     border-color: var(--primary-color);
+ }
