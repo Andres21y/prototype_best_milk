@@ -5,8 +5,6 @@ document.addEventListener('DOMContentLoaded', function () {
 
 function startApp() {
   
-  console.log("start app is On");
-  
   setTimeout(() => {
     const sidenavElems = document.querySelectorAll('.sidenav');
     M.Sidenav.init(sidenavElems);

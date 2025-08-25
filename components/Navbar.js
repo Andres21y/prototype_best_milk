@@ -4,7 +4,7 @@ const Navbar = {
             <div class="navbar-fixed">
                 <nav>
                     <div class="nav-wrapper">
-                    <a href="#" class="brand-logo grey-text text-darken-3"><img class="responsive-img" src="/Public/assets/images/best_milk_main.png"></a>
+                    <a href="#" class="brand-logo grey-text text-darken-3"><img class="responsive-img" src="assets/images/best_milk_main.png"></a>
                             <a href="#" data-target="mobile-demo" class="sidenav-trigger grey-text text-darken-3">
                                 <i class="material-icons">menu</i>
                             </a>

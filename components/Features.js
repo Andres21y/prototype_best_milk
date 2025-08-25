@@ -35,7 +35,7 @@ const Features = {
         `).join('');
         
         return `
-            <section class="section white">
+            <section class="section feature-section white">
                 <div class="container">
                     <div class="row">
                         <div class="col s12 center-align">
