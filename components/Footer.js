@@ -1,7 +1,7 @@
 const Footer = {
     render(config = {}) {
         const {
-            brandName = "<img class=responsive-img src=../assets/images/best_milk_main.png>",
+            brandName = "<img class=responsive-img src=assets/images/best_milk_main.png>",
             description = "La plataforma que necesitas para llevar tu negocio al siguiente nivel.",
             sections = [
                 {
