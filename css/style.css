@@ -210,7 +210,7 @@
 
  .feature-section {
      background: linear-gradient(135deg, rgba(26, 34, 126, 0.637), rgba(63, 81, 181, 0.342)),
-         url('/assets/images/main_ganado.jpeg');
+         url('../assets/images/main_ganado.jpeg');
      background-size: contain;
      background-position: center;
 
