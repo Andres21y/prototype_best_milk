@@ -17,13 +17,34 @@ const Stats = {
         `).join('');
         
         return `
-            <section class="stats-section">
-                <div class="container">
-                    <div class="row">
-                        ${statsHTML}
+                 <h1 class="main-title">
+                    Gestiona tu Ganado como un <span style="color: #3ea4f7ff;">Profesional</span>
+                </h1>
+                
+                <p class="subtitle white-text">
+                    La aplicación más completa para administrar tu ganado lechero. Controla inventario, salud, producción, 
+                    finanzas y genealogía desde cualquier dispositivo. Aumenta tu productividad hasta un 60%.
+                </p>
+                
+                <!-- Stats -->
+                <div class="stats">
+                    <div class="stat-item">
+                        <span class="stat-number">60%</span>
+                        <div class="stat-label">Más Productividad</div>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-number">1,200+</span>
+                        <div class="stat-label">Ganaderos Activos</div>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-number">50K+</span>
+                        <div class="stat-label">Animales Gestionados</div>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-number">99.9%</span>
+                        <div class="stat-label">Tiempo Activo</div>
                     </div>
                 </div>
-            </section>
         `;
     }
 };

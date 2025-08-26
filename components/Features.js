@@ -1,53 +1,42 @@
 const Features = {
-    render(config = {}) {
-        const {
-            title = "¿Por qué elegir BestMilk?",
-            subtitle = "Descubre las características que hacen de nuestra plataforma la mejor opción para tu negocio",
-            features = [
-                {
-                    icon: "flash_on",
-                    title: "Rápido y Eficiente",
-                    description: "Optimizado para ofrecer la mejor experiencia de usuario con tiempos de carga mínimos"
-                },
-                {
-                    icon: "security",
-                    title: "Seguro y Confiable", 
-                    description: "Tus datos están protegidos con los más altos estándares de seguridad"
-                },
-                {
-                    icon: "devices",
-                    title: "Responsive",
-                    description: "Funciona perfectamente en todos los dispositivos, desde móviles hasta desktop"
-                }
-            ]
-        } = config;
-        
-        const featuresHTML = features.map(feature => `
-            <div class="col s12 m4">
-                <div class="card card-hover hoverable">
-                    <div class="card-content center-align">
-                        <i class="material-icons feature-icon">${feature.icon}</i>
-                        <h5 class="grey-text text-darken-3">${feature.title}</h5>
-                        <p class="grey-text">${feature.description}</p>
-                    </div>
-                </div>
-            </div>
-        `).join('');
+    render() {
         
         return `
-            <section class="section feature-section white">
-                <div class="container">
-                    <div class="row">
-                        <div class="col s12 center-align">
-                            <h2 class="section-title grey-text text-darken-3">${title}</h2>
-                            <p class="section-subtitle">${subtitle}</p>
-                        </div>
+                    <div class="feature-card">
+                        <i class="material-icons feature-icon brown-text ">inventory_2</i>
+                        <h5 class="feature-title">Control de Inventario</h5>
+                        <p class="feature-description">Registra y monitorea cada animal con códigos únicos, historial completo y alertas automáticas</p>
                     </div>
-                    <div class="row">
-                        ${featuresHTML}
+                    
+                    <div class="feature-card">
+                        <i class="material-icons feature-icon red-text">local_hospital</i>
+                        <h5 class="feature-title">Gestión Sanitaria</h5>
+                        <p class="feature-description">Programa vacunas, tratamientos y controles veterinarios con recordatorios inteligentes</p>
                     </div>
-                </div>
-            </section>
+                    
+                    <div class="feature-card">
+                        <i class="material-icons feature-icon blue-text">trending_up</i>
+                        <h5 class="feature-title">Análisis de Producción</h5>
+                        <p class="feature-description">Reportes detallados de producción lechera, rendimiento y proyecciones de crecimiento</p>
+                    </div>
+                    
+                    <div class="feature-card">
+                        <i class="material-icons feature-icon green-text">account_balance_wallet</i>
+                        <h5 class="feature-title">Control Financiero</h5>
+                        <p class="feature-description">Gestiona gastos, ingresos, costos por animal y rentabilidad en tiempo real</p>
+                    </div>
+                    
+                    <div class="feature-card">
+                        <i class="material-icons feature-icon">family_restroom</i>
+                        <h5 class="feature-title">Genealogía</h5>
+                        <p class="feature-description">Árbol genealógico completo para optimizar cruces y mejorar la genética del hato</p>
+                    </div>
+                    
+                    <div class="feature-card">
+                        <i class="material-icons feature-icon">cloud_sync</i>
+                        <h5 class="feature-title">Sincronización</h5>
+                        <p class="feature-description">Acceso desde móvil, tablet y computadora con sincronización automática en la nube</p>
+                    </div>
         `;
     }
 };
