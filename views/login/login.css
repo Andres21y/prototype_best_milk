@@ -27,7 +27,7 @@ body {
     justify-content: center;
     min-width: 320px;
     background-color: #fc292986;
-    background-image: url(assets/images/main_ganado.jpeg);
+    background-image: url(/assets/images/main_ganado.jpeg);
     background-size: cover;
     background-repeat: no-repeat;
 }
