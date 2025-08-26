@@ -199,39 +199,39 @@ nav {
     box-shadow: 0 2px 5px var(--text-secondary);
     transform: translateY(-2px);
     }
+    
     /**
-
- .input-field input:focus+label,
- .input-field input:valid+label {
-     color: var(--accent-color) !important;
- }
-
- .input-field input:focus {
-     border-bottom: 2px solid var(--accent-color) !important;
-
- }
-
- .input-field label {
-     color: var(--text-secondary);
- }
-
- .input-field input {
-     color: var(--text-primary);
-     background-color: rgba(255, 255, 255, 0.05);
-     border-radius: 8px;
-     padding: 8px 12px;
- }
-
- .input-field .prefix {
-     color: var(--accent-color) !important;
- }
-
- .tabs .tab a {
-     color: var(--accent-color) !important;
- }
-
- .tabs .tab a:hover {
-     color: var(--light-accent) !important;
+    .input-field input:focus+label,
+    .input-field input:valid+label {
+        color: var(--accent-color) !important;
+        }
+        
+        .input-field input:focus {
+            border-bottom: 2px solid var(--accent-color) !important;
+            
+            }
+            
+            .input-field label {
+                color: var(--text-secondary);
+                }
+                
+                .input-field input {
+                    color: var(--text-primary);
+                    background-color: rgba(255, 255, 255, 0.05);
+                    border-radius: 8px;
+                    padding: 8px 12px;
+                    }
+                    
+                    .input-field .prefix {
+                        color: var(--accent-color) !important;
+                        }
+                        
+                        .tabs .tab a {
+                            color: var(--accent-color) !important;
+                            }
+                            
+                            .tabs .tab a:hover {
+                                color: var(--light-accent) !important;
  }
 
  .tabs .tab a.active {
@@ -258,9 +258,9 @@ nav {
      background: linear-gradient(145deg, rgba(255, 179, 71, 0.15) 0%, rgba(255, 179, 71, 0.05) 100%);
      border: 1px solid var(--warning-color);
      box-shadow: 0 4px 20px rgba(255, 179, 71, 0.2);
- }
-
- .logo-placeholder {
+     }
+     
+     .logo-placeholder {
      width: 100px;
      height: 100px;
      display: flex;
@@ -339,8 +339,8 @@ nav {
 
  .btn-demo {
      margin: 8px;
- }
-
+     }
+     
  /** Hero Section
 
 
@@ -350,13 +350,13 @@ nav {
      background-size: contain;
      background-position: center;
 
- }
+     }
 
  .hero-content {
      z-index: 2;
      text-align: center;
      color: white;
- }
+     }
 
  .hero-title {
      font-size: 3.5rem;

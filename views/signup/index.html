@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Signup</title>
+
+    <!-- Materialize CSS -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="./signup.css">
+</head>
+
+<body>
+    <div class="register-container">
+        <div class="card register-card">
+            <div class="register-header">
+            <img class="responsive-img" src="/assets/images/best_milk_main.png" alt="logo">
+                <p>Crea tu cuenta para comenzar</p>
+            </div>
+
+            <div class="register-content">
+                <div class="error-message" id="errorMessage">
+                    <i class="material-icons left tiny">error</i>
+                    <span id="errorText"></span>
+                </div>
+
+                <div class="success-message" id="successMessage">
+                    <i class="material-icons left tiny">check_circle</i>
+                    <span id="successText"></span>
+                </div>
+
+                <!-- Registration Form -->
+                <form id="registerForm">
+                    <div class="row" style="margin-bottom: 0;">
+                        <div class="input-field col s12 m6">
+                            <i class="material-icons prefix">person</i>
+                            <input id="first_name" type="text" class="validate" required>
+                            <label for="first_name">Nombre *</label>
+                        </div>
+
+                        <div class="input-field col s12 m6">
+                            <input id="last_name" type="text" class="validate" required>
+                            <label for="last_name">Apellido *</label>
+                        </div>
+                    </div>
+
+                    <div class="input-field">
+                        <i class="material-icons prefix">email</i>
+                        <input id="email" type="email" class="validate" required>
+                        <label for="email">Correo Electrónico *</label>
+                    </div>
+
+                    <div class="input-field">
+                        <i class="material-icons prefix">phone</i>
+                        <input id="phone" type="tel" class="validate">
+                        <label for="phone">Teléfono</label>
+                        <span class="helper-text">Formato: +57 300 123 4567</span>
+                    </div>
+
+                    <div class="input-field">
+                        <i class="material-icons prefix">lock</i>
+                        <input id="password" type="password" class="validate" required>
+                        <label for="password">Contraseña *</label>
+                        <div class="password-strength">
+                            <div class="password-strength-bar" id="strengthBar"></div>
+                        </div>
+                        <div class="password-strength-text" id="strengthText"></div>
+                    </div>
+
+                    <div class="input-field">
+                        <i class="material-icons prefix">lock_outline</i>
+                        <input id="confirm_password" type="password" class="validate" required>
+                        <label for="confirm_password">Confirmar Contraseña *</label>
+                    </div>
+
+                    <div class="terms-checkbox">
+                        <label>
+                            <input type="checkbox" id="acceptTerms" required>
+                            <span>Acepto los <a href="#termsModal" class="terms-link modal-trigger">Términos y
+                                    Condiciones</a> y la <a href="#privacyModal"
+                                    class="terms-link modal-trigger">Política de Privacidad</a> *</span>
+                        </label>
+                    </div>
+
+                    <button class="btn btn-register waves-effect waves-light" type="submit">
+                        <span class="register-text">Crear Cuenta</span>
+                        <div class="loading">
+                            <div class="preloader-wrapper small active">
+                                <div class="spinner-layer spinner-white-only">
+                                    <div class="circle-clipper left">
+                                        <div class="circle"></div>
+                                    </div>
+                                    <div class="gap-patch">
+                                        <div class="circle"></div>
+                                    </div>
+                                    <div class="circle-clipper right">
+                                        <div class="circle"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </button>
+                </form>
+
+                <div class="divider">
+                    <span>o regístrate con</span>
+                </div>
+
+                <!-- Google Registration Option -->
+                <div class="social-register">
+                    <button class="btn btn-social btn-google waves-effect" onclick="registerWithGoogle()">
+                        <svg class="social-icon" viewBox="0 0 24 24">
+                            <path fill="#4285f4"
+                                d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" />
+                            <path fill="#34a853"
+                                d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" />
+                            <path fill="#fbbc05"
+                                d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z" />
+                            <path fill="#ea4335"
+                                d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" />
+                        </svg>
+                        Registrarse con Google
+                    </button>
+                </div>
+
+                <div class="login-link grey-text darken-3">
+                    <p>¿Ya tienes una cuenta? <a href="../login/index.html">Inicia sesión aquí</a></p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Terms Modal -->
+    <div id="termsModal" class="modal">
+        <div class="modal-content">
+            <h4>Términos y Condiciones</h4>
+            <p><strong>1. Aceptación de los Términos</strong></p>
+            <p>Al acceder y utilizar el Sistema Ganadero, usted acepta estar sujeto a estos términos y condiciones.</p>
+
+            <p><strong>2. Uso del Servicio</strong></p>
+            <p>El Sistema Ganadero está diseñado para la gestión y registro de ganado. Usted se compromete a utilizar el
+                servicio de manera responsable y legal.</p>
+
+            <p><strong>3. Privacidad de Datos</strong></p>
+            <p>Nos comprometemos a proteger su información personal y los datos de su ganado conforme a nuestra política
+                de privacidad.</p>
+
+            <p><strong>4. Responsabilidades del Usuario</strong></p>
+            <p>Usted es responsable de mantener la confidencialidad de su cuenta y contraseña, así como de la veracidad
+                de la información ingresada.</p>
+
+            <p><strong>5. Limitación de Responsabilidad</strong></p>
+            <p>El Sistema Ganadero no se hace responsable por pérdidas o daños derivados del uso del servicio.</p>
+        </div>
+        <div class="modal-footer">
+            <a href="#!" class="modal-close waves-effect waves-green btn-flat">Cerrar</a>
+        </div>
+    </div>
+
+    <!-- Privacy Modal -->
+    <div id="privacyModal" class="modal">
+        <div class="modal-content">
+            <h4>Política de Privacidad</h4>
+            <p><strong>Recopilación de Información</strong></p>
+            <p>Recopilamos información personal necesaria para brindar nuestros servicios de gestión ganadera.</p>
+
+            <p><strong>Uso de la Información</strong></p>
+            <p>Su información se utiliza exclusivamente para mejorar nuestros servicios y proporcionar funcionalidades
+                del sistema.</p>
+
+            <p><strong>Protección de Datos</strong></p>
+            <p>Implementamos medidas de seguridad para proteger su información personal contra acceso no autorizado.</p>
+
+            <p><strong>Compartir Información</strong></p>
+            <p>No compartimos su información personal con terceros sin su consentimiento explícito.</p>
+        </div>
+        <div class="modal-footer">
+            <a href="#!" class="modal-close waves-effect waves-green btn-flat">Cerrar</a>
+        </div>
+    </div>
+
+    <script src="./signup.js"></script>
+    <!-- Materialize JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+</body>
+
+</html>
