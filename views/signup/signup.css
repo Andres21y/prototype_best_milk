@@ -28,13 +28,13 @@ body {
     justify-content: center;
     min-width: 320px;
     background-color: #fc292986;
-    background-image: url(/assets/images/main_ganado.jpeg);
+    background-image: url(assets/images/main_ganado.jpeg);
     background-size: cover;
     background-repeat: no-repeat;
 }
 
 i{
-    color: var(--secondary-color);
+    color: var(--primary-color);
 }
 .register-container {
     width: 100%;
@@ -59,6 +59,9 @@ i{
     text-align: center;
 }
 
+.responsive-img {
+    width: 100%;
+}
 .register-content {
     padding: 2rem;
 }
@@ -80,7 +83,7 @@ i{
 
 
 .btn-register {
-    background: var(--success-color);
+    background: var(--primary-color);
     border: none;
     border-radius: 10px;
     width: 100%;

@@ -27,7 +27,7 @@ body {
     justify-content: center;
     min-width: 320px;
     background-color: #fc292986;
-    background-image: url(/assets/images/main_ganado.jpeg);
+    background-image: url(assets/images/main_ganado.jpeg);
     background-size: cover;
     background-repeat: no-repeat;
 }
@@ -69,9 +69,6 @@ i {
     padding: 1.5rem;
 }
 
-.input-field input {
-    border-bottom: 1px solid var(--primary-color) !important;
-}
 
 .input-field input:focus+label {
     color: #667eea !important;
