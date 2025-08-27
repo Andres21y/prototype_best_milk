@@ -22,10 +22,10 @@ function startApp() {
     M.Sidenav.init(sidenavElems);
   }, 100);
 
-  document.getElementById('navbar').innerHTML = Navbar.render();
-  document.getElementById('features').innerHTML = Features.render();
-  document.getElementById('stats').innerHTML = Stats.render();
-  document.getElementById('cta').innerHTML = Cta.render();
-  document.getElementById('footer').innerHTML = Footer.render();
+  document.getElementById('navbar-container').innerHTML = Navbar.render();
+  document.getElementById('features-container').innerHTML = Features.render();
+  document.getElementById('stats-container').innerHTML = Stats.render();
+  document.getElementById('cta-container').innerHTML = Cta.render();
+  document.getElementById('footer-container').innerHTML = Footer.render();
 }
 
