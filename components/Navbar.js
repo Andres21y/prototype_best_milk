@@ -25,7 +25,7 @@ const Navbar = {
                     <img src="./assets/images/best_milk_main.png" style="width:90%; height:40px;">
                 </div>
                 </li>
-                <li><a href="#" onclick="navigateTo('')">Home</a></li>
+                <li><a href="#" onclick="navigateTo('')"><i class="material-icons red-text">home</i>Home</a></li>
                 <li><a href="#" onclick="navigateTo('login')">Iniciar Sesión</a></li>
                 <li><a href="#" onclick="navigateTo('signup')">Registrarse</a></li>
                 <li><a href="#" onclick="navigateTo('admin')">Admin</a></li>
