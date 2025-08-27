@@ -17,11 +17,12 @@ const Stats = {
         `).join('');
         
         return `
+        <div  class="section stats_section">
                  <h1 class="main-title">
                     Gestiona tu Ganado como un <span style="color: #3ea4f7ff;">Profesional</span>
                 </h1>
                 
-                <p class="subtitle white-text">
+                <p class="subtitle">
                     La aplicación más completa para administrar tu ganado lechero. Controla inventario, salud, producción, 
                     finanzas y genealogía desde cualquier dispositivo. Aumenta tu productividad hasta un 60%.
                 </p>
@@ -45,6 +46,8 @@ const Stats = {
                         <div class="stat-label">Tiempo Activo</div>
                     </div>
                 </div>
+        </div>
+                
         `;
     }
 };

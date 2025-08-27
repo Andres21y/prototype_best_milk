@@ -1,10 +1,8 @@
 
-
-
 /* Navegar entre paginas */
-function navigateTo(props) {
-    window.location.href = `views/${props}/index.html`;
-    console.log(props);
+function navigateTo(item) {
+    window.location.href = `views/${item}/index.html`;
+    console.log(item);
 }
 
 /* Hacer funciones disponibles globalmente*/

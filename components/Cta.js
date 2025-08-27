@@ -8,7 +8,7 @@ const Cta = {
         } = config;
         
         return `
-            <section class="cta-section white-text valign-wrapper" style="height:400px">
+            <section class="cta-section white white-text valign-wrapper" style="height:400px">
                 <div class="container valign">
                     <div class="row">
                         <div class="col s12 center-align">

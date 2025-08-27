@@ -1,0 +1,97 @@
+body {
+    background: #1a1a2e;
+    color: whitesmoke;
+    min-width: 250px;
+    overflow: hidden;
+}
+
+
+/**
+
+
+.dash {
+    display: flex;
+
+}
+
+.sidenav li>a {
+    padding: 0 16px;
+}
+
+.sidenav {
+    width: 250px;
+}
+
+
+.dashboard-card {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.stat-number {
+    font-size: 3rem;
+    font-weight: bold;
+    margin: 0;
+}
+    **/
+@media screen and (min-width:480px) {
+    /**
+    nav,
+    header,
+    main {
+        padding-left: 20px;
+    }
+
+    main {
+        padding: 20px;
+        background-color: red;
+    }
+
+    nav,
+    header,
+    main {
+        padding-left: 320px;
+    }
+
+    main {
+        }**/
+
+    body {
+        
+    }
+
+
+}
+@media screen and (min-width:993px) {
+    /**
+    nav,
+    header,
+    main {
+        padding-left: 20px;
+    }
+
+    main {
+        padding: 20px;
+        background-color: red;
+    }
+
+    nav,
+    header,
+    main {
+        padding-left: 320px;
+    }
+
+    main {
+        }**/
+
+    body {
+      
+    }
+
+    main {
+        padding-left: 21rem;
+
+    }
+}

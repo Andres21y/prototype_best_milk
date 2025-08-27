@@ -28,7 +28,7 @@ const Footer = {
                     ]
                 }
             ],
-            copyright = "© 2024 MiApp. Todos los derechos reservados."
+            copyright = "© 2025 bestmilk. Todos los derechos reservados - grupo A."
         } = config;
 
         const sectionsHTML = sections.map(section => `
@@ -43,8 +43,9 @@ const Footer = {
         `).join('');
 
         return `
-            <footer class="footer-section white-text">
-                <div class="container center-align " style="height:250px ">
+            <footer class="footer_section white-text">
+
+                <div class="container footer">
                     <div class="row">
                         <div class="col s12 m3">
                             <h5 class="brand-logo">${brandName}</h5>
@@ -52,13 +53,15 @@ const Footer = {
                         </div>
                         ${sectionsHTML}
                     </div>
-                    </div>
-                    <div class="footer-copyright">
-                        <div class="container center-align">
-                        <span class="grey-text text-lighten-1">${copyright}</span>
-                        </div>
-                    </div>
+                </div>
+
+                <div class="divider grey"></div>
                 
+                <div class="footer_copyright">
+                    <div class="container center-align">
+                        <span class="grey-text text-lighten-1">${copyright}</span>
+                    </div>
+                </div>
             </footer>
         `;
     }

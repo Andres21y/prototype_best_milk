@@ -6,7 +6,7 @@ const AppConfig = {
         login: "views/login/index.html",
         signup: "views/signup/index.html",
         error: "error/index.html",
-        dashboard: "views/dashboard/index.html"
+        dashboard: "views/admin/index.html"
     }
 };
 
@@ -22,10 +22,10 @@ function startApp() {
     M.Sidenav.init(sidenavElems);
   }, 100);
 
-  document.getElementById('navbar-container').innerHTML = Navbar.render();
-  document.getElementById('features-container').innerHTML = Features.render();
-  document.getElementById('stats-container').innerHTML = Stats.render();
-  document.getElementById('cta-container').innerHTML = Cta.render();
-  document.getElementById('footer-container').innerHTML = Footer.render();
+  document.getElementById('navbar').innerHTML = Navbar.render();
+  document.getElementById('features').innerHTML = Features.render();
+  document.getElementById('stats').innerHTML = Stats.render();
+  document.getElementById('cta').innerHTML = Cta.render();
+  document.getElementById('footer').innerHTML = Footer.render();
 }
 

@@ -2,6 +2,7 @@ const Features = {
     render() {
         
         return `
+            <div class="section feature_section">
                     <div class="feature-card">
                         <i class="material-icons feature-icon brown-text ">inventory_2</i>
                         <h5 class="feature-title">Control de Inventario</h5>
@@ -37,6 +38,7 @@ const Features = {
                         <h5 class="feature-title">Sincronización</h5>
                         <p class="feature-description">Acceso desde móvil, tablet y computadora con sincronización automática en la nube</p>
                     </div>
+            </div>
         `;
     }
 };
