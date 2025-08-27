@@ -24,13 +24,29 @@ body {
     align-items: center;
     justify-content: center;
     min-width: 400px;
-    padding: 1rem;
     background-image: url(../../assets/images/gandomilk.jpg);
     background-size: contain;
     background-repeat: repeat;
 }
 
+.navlogin {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+}
+
+nav {
+    background: var(--primary-color);
+}
+
+.nav-wrapper {
+    padding:0 1rem;
+}
+
 .login_container {
+    margin-top: 2rem;
+    padding: 1rem;
     width: 100%;
     min-height: 100svh;
     display: flex;
@@ -145,11 +161,12 @@ body {
 }
 
 @media only screen and (min-width:680px) {
+
     .image_section {
         background-color: cadetblue;
         display: flex;
         align-items: center;
-        justify-content: center;
+        justify-content: space-between;
         padding: 40px;
         position: relative;
         color: #ffffff;
