@@ -11,22 +11,28 @@
     --error-color: #ff6b6b;
 }
 
-* {
+body {
     margin: 0;
     padding: 0;
-    box-sizing: border-box;
-}
-
-body {
-    font-family: 'Poppins', sans-serif;
-    color: var(--primary-color);
     display: flex;
     align-items: center;
     justify-content: center;
-    min-width: 400px;
     background-image: url(../../assets/images/gandomilk.jpg);
-    background-size: contain;
-    background-repeat: repeat;
+    background-size: cover;
+    background-repeat:no-repeat;
+    min-width: 320px;
+}
+
+.login_container {
+    font-family: 'Poppins', sans-serif;
+    color: var(--primary-color);
+    padding: 1rem;
+    min-height: 100svh;
+    width: 100%;
+    min-height: 100svh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .navlogin {
@@ -44,15 +50,6 @@ nav {
     padding:0 1rem;
 }
 
-.login_container {
-    margin-top: 2rem;
-    padding: 1rem;
-    width: 100%;
-    min-height: 100svh;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
 
 .login_card {
     background: white;
