@@ -25,9 +25,9 @@ body {
     justify-content: center;
     min-width: 400px;
     padding: 1rem;
-    background-image: url('assets/images/main_ganado.jpeg');
-    background-size: cover;
-    background-repeat: no-repeat;
+    background-image: url(/assets/images/gandomilk.jpg);
+    background-size: contain;
+    background-repeat: repeat;
 }
 
 .login_container {
