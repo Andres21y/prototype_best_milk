@@ -25,7 +25,7 @@ const Navbar = {
                 </div>
                 </li>
                 <li><a href="#" onclick="navigateTo('')"><i class="material-icons red-text">home</i>Home</a></li>
-                <li><a href="#" onclick="navigateTo('login')">Iniciar Sesión</a></li>
+                <li><a href="#" onclick="navigateTo('login')"><i class="material-icons green-text">person</i>Iniciar Sesión</a></li>
                 <li><a href="#" onclick="navigateTo('signup')">Registrarse</a></li>
                 <li><a href="#" onclick="navigateTo('admin')">Admin</a></li>
 
