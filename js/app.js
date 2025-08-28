@@ -26,6 +26,7 @@ function startApp() {
   document.getElementById('features-container').innerHTML = Features.render();
   document.getElementById('stats-container').innerHTML = Stats.render();
   document.getElementById('cta-container').innerHTML = Cta.render();
+  document.getElementById('grid-container').innerHTML = Grid.render();
   document.getElementById('footer-container').innerHTML = Footer.render();
 }
 
