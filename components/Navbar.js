@@ -33,7 +33,7 @@ const Navbar = {
 
                 <li><a href="#" onclick="navigateTo('contac')">Contac</a></li>
                 <li><a href="#" onclick="navigateTo('help')">Help</a></li>
-                <li><a href="#" onclick="navigateTo('setting')">Settings</a></li>
+                <li><a href="#" onclick="navigateTo('setting')"><i class="material-icons red-text">settings</i>Settings</a></li>
             </ul>
         `;
     },
