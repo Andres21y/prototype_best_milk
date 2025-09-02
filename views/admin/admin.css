@@ -26,7 +26,7 @@
  .card-content {}
 
  .header-card {
-     background-image: url("/assets/images/tree.jpg");
+     background-image: url("../../assets/images/tree.jpg");
      background-size: cover;
      color: white;
      padding: 20px 0;
