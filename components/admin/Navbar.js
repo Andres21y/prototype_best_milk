@@ -9,8 +9,7 @@ const Navbar = {
                 <a href="#" class="brand-logo grey-text text-darken-3">
                     <img class="responsive-img" src="../../assets/images/best_milk_main.png">
                 </a>
-                <a href="#name"><span class="name">Pepito</span></a>
-                <a href="#email"><span class="email">pepitoperez@gmail.com</span></a>
+              
             </div>
         </li>
            <li>
@@ -52,7 +51,7 @@ const Navbar = {
         <li>
             <div class="divider"></div>
         </li>
-        <div>
+        <div style="margin-top:auto">
             <li>
                 <a href="#!" onclick="showSection('reportes')" class="waves-effect">
                     <i class="material-icons">assessment</i>Reportes
