@@ -7,7 +7,7 @@ const Navbar = {
                 <div class="background bg_user_view"></div>
 
                 <a href="#" class="brand-logo grey-text text-darken-3">
-                    <img class="responsive-img" src="assets/images/best_milk_main.png">
+                    <img class="responsive-img" src="../../assets/images/best_milk_main.png">
                 </a>
                 <a href="#name"><span class="name">Pepito</span></a>
                 <a href="#email"><span class="email">pepitoperez@gmail.com</span></a>
@@ -50,20 +50,24 @@ const Navbar = {
             <div class="divider"></div>
         </li>
         <div style="margin-top: auto; ">
-        <li><a href="#!" onclick="showSection('reportes')" class="waves-effect">
-        <i class="material-icons">assessment</i>Reportes
-        </a></li>
-        <li><a href="#!" onclick="showSection('config')" class="waves-effect">
-        <i class="material-icons">settings</i>Configuración
-            </a></li>
-        <li>
-            <div class="divider"></div>
-        </li>
-        <li>
-            <a href="#!" class="waves-effect red-text" onclick="showlogout()">
-                <i class="material-icons">exit_to_app</i>Cerrar Sesión
+            <li>
+                <a href="#!" onclick="showSection('reportes')" class="waves-effect">
+                    <i class="material-icons">assessment</i>Reportes
                 </a>
-        </li>
+            </li>
+            <li>
+                <a href="#!" onclick="showSection('config')" class="waves-effect">
+                    <i class="material-icons">settings</i>Configuración
+                </a>
+            </li>
+            <li>
+                <div class="divider"></div>
+            </li>
+            <li>
+                <a href="#!" class="waves-effect red-text" onclick="showlogout()">
+                    <i class="material-icons">exit_to_app</i>Cerrar Sesión
+                </a>
+            </li>
         </div>
     </ul>
 
