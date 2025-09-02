@@ -73,7 +73,7 @@ nav {
     align-items: center;
     position: relative;
     overflow: hidden;
-    background-image: url(/assets/images/cows.jpg);
+    background-image: url(../assets/images/cows.jpg);
     background-size: cover;
     background-repeat: no-repeat;
 }
@@ -130,30 +130,33 @@ nav {
     min-height: 600px;
     width: 100%;
     color: var(--primary-color);
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    display: grid;
+    place-items: center;
 }
 
 .feature_section {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 30px;
-    margin: 50px 0;
+    width: 100%;
+    height: 100%;
     text-align: center;
     max-width: 1440px;
     overflow: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 1rem;
 }
 
 .feature-card {
-    background: #f8f9fa;
+   background-color: #fff;
     padding: 17px 25px;
-    border-radius: 16px;
-    text-align: center;
+    border-radius: 15px;
     transition: all 0.3s ease;
     border: 2px solid transparent;
     position: relative;
     overflow: hidden;
+    min-width: 208px;
+    max-width: 425px;
 }
 
 .feature-card::before {
@@ -228,4 +231,3 @@ nav {
 .img_gallery {
     border-radius: 5px;
 }
-

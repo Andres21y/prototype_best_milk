@@ -1,4 +1,4 @@
-const Report = {
+const Reports = {
     render() {
         return ` 
          <div class="card">
