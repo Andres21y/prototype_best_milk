@@ -3,7 +3,7 @@
     --secondary-color: darkslategrey;
     --tertiary-color: #0f3460;
     --accent-color: #45e4e99f;
-    --light-accent: #ff6b8a;
+    --light-accent: #fc4b08;
     --text-primary: #ffffff;
     --text-secondary: #1a1a2e;
     --success-color: #00d4aa;
@@ -159,7 +159,7 @@ nav {
 @media only screen and (min-width:680px) {
 
     .image_section {
-        background-color: cadetblue;
+        background-color: var(--light-accent);
         display: flex;
         align-items: center;
         justify-content: space-between;

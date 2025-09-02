@@ -28,7 +28,7 @@ function loadComponent() {
     document.getElementById('salud-section').innerHTML = Health.render();
     document.getElementById('alimentacion-section').innerHTML = Feed.render();
     document.getElementById('config-section').innerHTML = Config.render();
-    document.getElementById('reportes-section').innerHTML = Report.render();
+    document.getElementById('reportes-section').innerHTML = Reports.render();
 }
 
 // fx cambiar de vista

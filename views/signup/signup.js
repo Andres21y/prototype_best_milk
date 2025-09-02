@@ -1,9 +1,52 @@
 // Inicializar componentes de Materialize
 document.addEventListener('DOMContentLoaded', function () {
+    animmationSignup()
     M.AutoInit();
     var modals = document.querySelectorAll('.modal');
     M.Modal.init(modals);
 });
+
+const form = document.getElementById('signupForm');
+form.addEventListener('submit', function (e) {
+    e.preventDefault();
+
+    // Validar términos y condiciones
+    const terms = document.getElementById('terms');
+    if (!terms.checked) {
+        M.toast({ html: '<i class="material-icons left">error</i>Debes aceptar los términos y condiciones', displayLength: 3000 });
+        return;
+    }
+
+    // Simular registro exitoso
+    const firstName = document.getElementById('firstName').value;
+    const email = document.getElementById('email').value;
+
+    M.toast({ html: `<i class="material-icons left">check_circle</i>¡Bienvenido ${firstName}! Cuenta creada exitosamente`, displayLength: 4000 });
+
+    // Limpiar formulario después de 2 segundos
+    setTimeout(() => {
+        form.reset();
+        // Remover clases de validación
+        const inputs = form.querySelectorAll('input');
+        inputs.forEach(input => {
+            input.classList.remove('valid', 'invalid');
+        });
+    }, 2000);
+});
+
+function animmationSignup() {
+    console.log("animation on");
+
+    const card = document.querySelector('.signup-card');
+    card.style.opacity = '0';
+    card.style.transform = 'translateY(30px)';
+
+    setTimeout(() => {
+        card.style.transition = 'all 0.6s ease';
+        card.style.opacity = '1';
+        card.style.transform = 'translateY(0)';
+    }, 100);
+}
 
 // Función principal de registro
 function createProfessionalRegister() {
