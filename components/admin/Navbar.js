@@ -49,7 +49,7 @@ const Navbar ={
         <li>
             <div class="divider"></div>
         </li>
-        <li style="margin-top: auto;"><a href="#!" onclick="showSection('reportes')" class="waves-effect">
+        <li style="margin-top: auto; min-height:100svh"><a href="#!" onclick="showSection('reportes')" class="waves-effect">
                 <i class="material-icons">assessment</i>Reportes
             </a></li>
         <li><a href="#!" onclick="showSection('config')" class="waves-effect">
