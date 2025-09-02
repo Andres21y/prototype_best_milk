@@ -5,7 +5,10 @@ function navigateTo(item) {
     console.log(item);
 }
 
+
+
 /* Hacer funciones disponibles globalmente*/
 window.navigateTo = Utils.navigateTo;
 window.showToast = Utils.showToast;
 window.validateEmail = Utils.validateEmail;
+

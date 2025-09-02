@@ -1,381 +1,507 @@
-import { renderPeople } from 'components/Table_personal.js';
-import { renderRecords } from 'components/Table_registro.js';
-import { cattleRegistrationForm } from 'components/Cattle_registration_form.js';
-
 document.addEventListener('DOMContentLoaded', function () {
+    
+    M.AutoInit();
+
+    // fx para cargar los componentes
+    loadComponent();
+
+    // fx para inicializar los graficos
+    initializeCharts();
+    
+    // listeners para los controles de los graficos
+    document.getElementById('chart-period').addEventListener('change', updateCharts);
+    document.getElementById('chart-type').addEventListener('change', updateCharts);
+});
+
+function loadComponent() {
+    setTimeout(() => {
+        const sidenavElems = document.querySelectorAll('.sidenav');
+        M.Sidenav.init(sidenavElems);
+    }, 100);
+
+    document.getElementById('navbar-section').innerHTML = Navbar.render();
+    document.getElementById('dashboard-section').innerHTML = Dashboard.render();
+    document.getElementById('ganado-section').innerHTML = Gando.render();
+    document.getElementById('personal-section').innerHTML = Personal.render();
+    document.getElementById('analytic-section').innerHTML = Analytics.render();
+    document.getElementById('produccion-section').innerHTML = Production.render();
+    document.getElementById('salud-section').innerHTML = Health.render();
+    document.getElementById('alimentacion-section').innerHTML = Feed.render();
+    document.getElementById('config-section').innerHTML = Config.render();
+    document.getElementById('reportes-section').innerHTML = Report.render();
+}
+
+// fx cambiar de vista
+function showSection(sectionName) {
+    
+    // desactivar todas las seciones
+    const sections = document.querySelectorAll('.content-section');
+    sections.forEach(section => {
+        section.classList.remove('active');
+    });
+
+    // mostrar seción activa
+    const activeSection = document.getElementById(sectionName + '-section');
+    if (activeSection) {
+        activeSection.classList.add('active');
+    }
+
+    // notificación
+    M.toast({ html: `${getSectionTitle(sectionName)}`, classes: 'green' });
+}
+
+// fx cambiar de vista
+function showlogout() {
+    var instance = M.Modal.getInstance(document.getElementById('modal-logout'));
+    instance.open();
+}
+
+// fx para terminar sesión
+function logout() {
+
+    var instance = M.Modal.getInstance(document.getElementById('modal-logout'));
+    instance.close();
+
+    // notificación
+    M.toast({ html: 'Cerrando sesión...', classes: 'orange' });
+
+
+    setTimeout(function () {
+        window.location.href = '/';
+    }, 1000);
+}
+
+function getSectionTitle(sectionName) {
+    const titles = {
+        'dashboard': 'Dashboard',
+        'personal': 'Gestión de Personal',
+        'ganado': 'Registro de Ganado',
+        'produccion': 'Control de Producción',
+        'salud': 'Salud Veterinaria',
+        'alimentacion': 'Control de Alimentación',
+        'reportes': 'Reportes y Análisis',
+        'config': 'Configuración'
+    };
+    return titles[sectionName] || sectionName;
+}
+
+
+function addPersonal() {
+    var instance = M.Modal.getInstance(document.getElementById('modal-personal'));
+    instance.open();
+ 
+    document.getElementById('form-personal').reset();
+    M.updateTextFields();
+}
+
+function addGanado() {
+    var instance = M.Modal.getInstance(document.getElementById('modal-ganado'));
+    instance.open();
+
+    document.getElementById('form-ganado').reset();
+    M.updateTextFields();
+}
+
+// fx para guardar ganado
+function guardarGanado() {
+    const form = document.getElementById('form-ganado');
+    if (form.checkValidity()) {
+
+        const ganado = {
+            id: document.getElementById('ganado-id').value,
+            nombre: document.getElementById('ganado-nombre').value,
+            raza: document.getElementById('ganado-raza').value,
+            sexo: document.getElementById('ganado-sexo').value,
+            nacimiento: document.getElementById('ganado-nacimiento').value,
+            peso: document.getElementById('ganado-peso').value,
+            madre: document.getElementById('ganado-madre').value,
+            padre: document.getElementById('ganado-padre').value,
+            observaciones: document.getElementById('ganado-observaciones').value
+        };
+
+
+        const birthDate = new Date(ganado.nacimiento);
+        const today = new Date();
+        const age = Math.floor((today - birthDate) / (365.25 * 24 * 60 * 60 * 1000));
+
   
-  const btnPeople = document.getElementById('btn_people');
-  const btnRegisters = document.getElementById('btn_data');
-  const btnCRF = document.getElementById('btn_new_cattle_form');
-  const renderDiv = document.getElementById('render');
+        const tbody = document.querySelector('#ganado-section tbody');
+        const newRow = tbody.insertRow();
+        newRow.innerHTML = `
+                    <td>${ganado.id}</td>
+                    <td>${ganado.nombre}</td>
+                    <td>${ganado.raza}</td>
+                    <td>${age} años</td>
+                    <td>0.0</td>
+                    <td><span class="green-text">Saludable</span></td>
+                    <td>
+                        <i class="material-icons tiny">visibility</i>
+                        <i class="material-icons tiny">edit</i>
+                    </td>
+                `;
 
-  btnPeople.addEventListener('click', () => {
-    renderDiv.innerHTML = '';
-    renderDiv.appendChild(renderPeople());
-  });
+        var instance = M.Modal.getInstance(document.getElementById('modal-ganado'));
+        instance.close();
 
-  btnRegisters.addEventListener('click', () => {
-    renderDiv.innerHTML = '';
-    renderDiv.appendChild(renderRecords());
-  });
+        M.toast({ html: `Ganado ${ganado.nombre} registrado exitosamente`, classes: 'green' });
 
-  btnCRF.addEventListener('click', () => {
-    renderDiv.innerHTML = '';
-    renderDiv.appendChild(cattleRegistrationForm());
-  });
+        updateGanadoCount();
+    } else {
+        M.toast({ html: 'Por favor completa todos los campos requeridos', classes: 'red' });
+    }
+}
 
-  console.log("ressdd", btnPeople);
+// fx para guardar personal
+function guardarPersonal() {
+    const form = document.getElementById('form-personal');
+    if (form.checkValidity()) {
+ 
+        const personal = {
+            nombre: document.getElementById('personal-nombre').value,
+            cedula: document.getElementById('personal-cedula').value,
+            cargo: document.getElementById('personal-cargo').value,
+            turno: document.getElementById('personal-turno').value,
+            telefono: document.getElementById('personal-telefono').value,
+            email: document.getElementById('personal-email').value,
+            ingreso: document.getElementById('personal-ingreso').value,
+            salario: document.getElementById('personal-salario').value,
+            direccion: document.getElementById('personal-direccion').value
+        };
 
-  let elems = document.querySelectorAll('.sidenav');
-  let options = {}; // define tus opciones si las necesitas
-  let instances = M.Sidenav.init(elems, options);
+        const tbody = document.querySelector('#personal-section tbody');
+        const newRow = tbody.insertRow();
+        newRow.innerHTML = `
+                    <td>${personal.nombre}</td>
+                    <td>${personal.cargo}</td>
+                    <td>${personal.turno}</td>
+                    <td><span class="green-text">Activo</span></td>
+                    <td>
+                        <i class="material-icons tiny">edit</i>
+                        <i class="material-icons tiny">delete</i>
+                    </td>
+                `;
 
-  // Render inicial
-  renderDiv.innerHTML = '';
-  renderDiv.appendChild(renderPeople());
+        var instance = M.Modal.getInstance(document.getElementById('modal-personal'));
+        instance.close();
+
+        M.toast({ html: `Personal ${personal.nombre} registrado exitosamente`, classes: 'green' });
+
+        updatePersonalCount();
+    } else {
+        M.toast({ html: 'Por favor completa todos los campos requeridos', classes: 'red' });
+    }
+}
+
+// Function to update ganado count
+function updateGanadoCount() {
+    const rows = document.querySelectorAll('#ganado-section tbody tr');
+    const count = rows.length;
+    const ganadoStat = document.querySelector('.stats-card.green h4');
+    if (ganadoStat) {
+        ganadoStat.textContent = count;
+    }
+}
+
+// Function to update personal count
+function updatePersonalCount() {
+    const rows = document.querySelectorAll('#personal-section tbody tr');
+    const count = rows.length;
+    const personalStat = document.querySelector('.stats-card.orange h4');
+    if (personalStat) {
+        personalStat.textContent = count;
+    }
+}
+
+
+function updateStats() {
+    const statsElements = document.querySelectorAll('.stats-card h4');
+    statsElements.forEach(element => {
+        const currentValue = parseInt(element.textContent.replace(/,/g, ''));
+        const variation = Math.floor(Math.random() * 10) - 5; 
+        const newValue = Math.max(0, currentValue + variation);
+
+        if (element.textContent.includes(',')) {
+            element.textContent = newValue.toLocaleString();
+        } else {
+            element.textContent = newValue;
+        }
+    });
+}
+
+//actualizar stats cada 30 segundos
+setInterval(updateStats, 30000);
+
+
+document.addEventListener('click', function (e) {
+    if (e.target.classList.contains('material-icons')) {
+        const action = e.target.textContent;
+        let message = '';
+
+        switch (action) {
+            case 'edit':
+                message = 'Abriendo editor...';
+                break;
+            case 'delete':
+                message = '¿Confirmar eliminación?';
+                break;
+            case 'visibility':
+                message = 'Mostrando detalles...';
+                break;
+            default:
+                message = 'Acción ejecutada';
+        }
+
+        M.toast({ html: message, classes: 'orange' });
+    }
 });
 
 
+let startX = 0;
+let startY = 0;
 
-/**
-<script type="module">
+document.addEventListener('touchstart', function (e) {
+    startX = e.touches[0].clientX;
+    startY = e.touches[0].clientY;
+});
 
+document.addEventListener('touchend', function (e) {
+    const endX = e.changedTouches[0].clientX;
+    const endY = e.changedTouches[0].clientY;
+    const diffX = startX - endX;
+    const diffY = startY - endY;
 
-
-
-
-
-
-
-        // Inicializar el formulario de ganado lechero
-        function initializeDairyForm() {
-            // Inicializar componentes de Materialize
-            setTimeout(() => {
-                var selects = document.querySelectorAll('select');
-                M.FormSelect.init(selects);
-
-                var tooltips = document.querySelectorAll('.tooltipped');
-                M.Tooltip.init(tooltips);
-
-                setupDairyValidation();
-            }, 100);
+    if (Math.abs(diffX) > Math.abs(diffY) && Math.abs(diffX) > 50) {
+        if (diffX > 0) {
+            M.toast({ html: 'Desliza hacia la derecha para volver al dashboard', classes: 'blue' });
+        } else {
+            showSection('dashboard');
         }
+    }
+});
 
-        // Configurar validación específica para ganado lechero
-        function setupDairyValidation() {
-            const requiredFields = ['cattle_id', 'breed', 'birth_date'];
+// seción analítica
 
-            requiredFields.forEach(fieldId => {
-                const field = document.getElementById(fieldId);
-                if (field) {
-                    field.addEventListener('blur', function () {
-                        validateDairyField(this);
-                    });
+let lineChart, polarChart, barChart, doughnutChart;
+
+// inicializar los grraficos
+function initializeCharts() {
+    createLineChart();
+    createPolarChart();
+    createBarChart();
+    createDoughnutChart();
+}
+
+// Line Chart - producción
+function createLineChart() {
+    const element = document.getElementById('lineChart').getContext('2d');
+    const data = generateProductionData();
+
+    lineChart = new Chart(element, {
+        type: 'line',
+        data: {
+            labels: data.labels,
+            datasets: [{
+                label: 'Producción Diaria (L)',
+                data: data.values,
+                borderColor: '#62e0ffff',
+                backgroundColor: 'rgba(100, 235, 240, 0.55)',
+                borderWidth: 3,
+                fill: true,
+                tension: 0.4
+            }]
+        },
+        options: {
+            responsive: true,
+            maintainAspectRatio: false,
+            plugins: {
+                legend: {
+                    display: true,
+                    position: 'top'
                 }
-            });
-
-            // Validación especial para producción lechera
-            const productionField = document.getElementById('daily_milk_production');
-            if (productionField) {
-                productionField.addEventListener('input', function () {
-                    validateMilkProduction(this.value);
-                });
-            }
-
-            // Auto-generar ID cuando se selecciona raza
-            const breedField = document.getElementById('breed');
-            if (breedField) {
-                breedField.addEventListener('change', function () {
-                    const cattleIdField = document.getElementById('cattle_id');
-                    if (!cattleIdField.value) {
-                        cattleIdField.value = generateDairyId(this.value);
-                        cattleIdField.classList.add('valid');
-                        M.updateTextFields();
+            },
+            scales: {
+                y: {
+                    beginAtZero: true,
+                    title: {
+                        display: true,
+                        text: 'Litros'
                     }
-                });
-            }
-        }
-
-        // Validar campo específico
-        function validateDairyField(field) {
-            const value = field.value.trim();
-
-            if (field.hasAttribute('required') && !value) {
-                field.classList.add('invalid');
-                field.classList.remove('valid');
-                return false;
-            } else if (value) {
-                field.classList.add('valid');
-                field.classList.remove('invalid');
-                return true;
-            }
-            return true;
-        }
-
-        // Validar producción de leche
-        function validateMilkProduction(production) {
-            const field = document.getElementById('daily_milk_production');
-            const value = parseFloat(production);
-
-            if (value && (value < 0 || value > 80)) {
-                field.classList.add('invalid');
-                showFieldError(field, 'La producción debe estar entre 0 y 80 litros');
-            } else if (value) {
-                field.classList.add('valid');
-                field.classList.remove('invalid');
-                removeFieldError(field);
-            }
-        }
-
-        // Mostrar error en campo
-        function showFieldError(field, message) {
-            removeFieldError(field);
-            const errorMsg = document.createElement('span');
-            errorMsg.className = 'error-message red-text';
-            errorMsg.textContent = message;
-            field.parentNode.appendChild(errorMsg);
-        }
-
-        // Remover error de campo
-        function removeFieldError(field) {
-            const errorMsg = field.parentNode.querySelector('.error-message');
-            if (errorMsg) {
-                errorMsg.remove();
-            }
-        }
-
-        // Generar ID para ganado lechero
-        function generateDairyId(breed) {
-            const breedCodes = {
-                'holstein': 'HOL',
-                'jersey': 'JER',
-                'brown_swiss': 'BSW',
-                'guernsey': 'GUE',
-                'ayrshire': 'AYR',
-                'shorthorn': 'SHO',
-                'normando': 'NOR'
-            };
-
-            const prefix = breedCodes[breed] || 'VL';
-            const timestamp = Date.now().toString().slice(-3);
-            const random = Math.floor(Math.random() * 100).toString().padStart(2, '0');
-
-            return `${prefix}${timestamp}${random}`;
-        }
-
-        // Validar formulario completo
-        function validateDairyForm() {
-            const requiredFields = ['cattle_id', 'breed', 'birth_date'];
-            let isValid = true;
-
-            requiredFields.forEach(fieldId => {
-                const field = document.getElementById(fieldId);
-                if (!validateDairyField(field)) {
-                    isValid = false;
                 }
-            });
-
-            // Validaciones específicas para ganado lechero
-            const birthDate = document.getElementById('birth_date').value;
-            if (birthDate && new Date(birthDate) > new Date()) {
-                document.getElementById('birth_date').classList.add('invalid');
-                isValid = false;
+            },
+            layout: {
+                padding: 10
             }
-
-            const bodyCondition = document.getElementById('body_condition_score').value;
-            if (bodyCondition && (bodyCondition < 1 || bodyCondition > 5)) {
-                document.getElementById('body_condition_score').classList.add('invalid');
-                isValid = false;
-            }
-
-            return isValid;
         }
+    });
+}
 
-        // Obtener datos del formulario
-        function getDairyFormData() {
-            const fields = [
-                'cattle_id', 'name', 'breed', 'birth_date', 'weight',
-                'reproductive_status', 'last_calving', 'total_calvings',
-                'expected_calving', 'insemination_date',
-                'daily_milk_production', 'lactation_days', 'peak_production',
-                'milk_fat_percentage', 'milk_protein_percentage',
-                'health_status', 'last_vaccination', 'body_condition_score',
-                'milking_frequency', 'location', 'feeding_system', 'observations'
-            ];
+// Polar Chart - distribución por razas
+function createPolarChart() {
+    const element = document.getElementById('polarChart').getContext('2d');
 
-            const data = {};
-
-            fields.forEach(field => {
-                const element = document.getElementById(field);
-                if (element) {
-                    data[field] = element.value;
+    polarChart = new Chart(element, {
+        type: 'polarArea',
+        data: {
+            labels: ['Holstein', 'Jersey', 'Angus', 'Brahman', 'Simmental'],
+            datasets: [{
+                data: [45, 25, 15, 10, 5],
+                backgroundColor: [
+                    '#4caf50',
+                    '#2196f3',
+                    '#ff9800',
+                    '#f44336',
+                    '#9c27b0'
+                ],
+                borderWidth: 2,
+                borderColor: '#fff'
+            }]
+        },
+        options: {
+            responsive: true,
+            maintainAspectRatio: false,
+            plugins: {
+                legend: {
+                    position: 'bottom'
                 }
-            });
-
-            // Calcular datos adicionales
-            if (data.birth_date) {
-                const birthDate = new Date(data.birth_date);
-                const today = new Date();
-                const ageInDays = Math.floor((today - birthDate) / (1000 * 60 * 60 * 24));
-                data.age_days = ageInDays;
-                data.age_months = Math.floor(ageInDays / 30);
-                data.age_years = Math.floor(ageInDays / 365);
-            }
-
-            // Calcular producción total estimada
-            if (data.daily_milk_production && data.lactation_days) {
-                data.total_lactation_production = parseFloat(data.daily_milk_production) * parseInt(data.lactation_days);
-            }
-
-            // Agregar metadatos
-            data.registration_date = new Date().toISOString();
-            data.registration_id = 'DAIRY_' + Date.now();
-            data.cattle_type = 'dairy';
-
-            return data;
-        }
-
-        // Manejar envío del formulario
-        function handleDairyFormSubmit(event) {
-            event.preventDefault();
-
-            if (!validateDairyForm()) {
-                M.toast({ html: 'Por favor, complete todos los campos requeridos correctamente', classes: 'red' });
-                return false;
-            }
-
-            const dairyData = getDairyFormData();
-
-            // Simular guardado
-            console.log('Datos de la vaca lechera registrada:', dairyData);
-
-            // Mostrar mensaje de éxito
-            document.getElementById('successMessage').style.display = 'block';
-            M.toast({ html: '¡Vaca lechera registrada exitosamente!', classes: 'blue' });
-
-            document.getElementById('successMessage').scrollIntoView({ behavior: 'smooth' });
-
-            setTimeout(() => {
-                resetDairyForm();
-            }, 4000);
-
-            return dairyData;
-        }
-
-        // Limpiar formulario
-        function resetDairyForm() {
-            const form = document.getElementById('dairyCattleForm');
-            if (form) {
-                form.reset();
-                document.getElementById('successMessage').style.display = 'none';
-
-                const inputs = document.querySelectorAll('input, select, textarea');
-                inputs.forEach(input => {
-                    input.classList.remove('valid', 'invalid');
-                });
-
-                const errorMessages = document.querySelectorAll('.error-message');
-                errorMessages.forEach(msg => msg.remove());
-
-                setTimeout(() => {
-                    var selects = document.querySelectorAll('select');
-                    M.FormSelect.init(selects);
-                }, 100);
-
-                M.toast({ html: 'Formulario limpiado', classes: 'blue' });
+            },
+            layout: {
+                padding: 10
             }
         }
+    });
+}
 
-        // Inicializar aplicación
-        document.addEventListener('DOMContentLoaded', function () {
-            const dairyForm = cattleRegistrationForm();
+// Bar Chart - producción semanal
+function createBarChart() {
+    const element = document.getElementById('barChart').getContext('2d');
 
-            // Insertar HTML en el contenedor
-            document.getElementById('app-container').innerHTML = dairyForm.html;
-
-            // Inicializar formulario
-            dairyForm.init();
-
-            // Configurar event listeners
-            setTimeout(() => {
-                const form = document.getElementById('dairyCattleForm');
-                if (form) {
-                    form.addEventListener('submit', handleDairyFormSubmit);
+    barChart = new Chart(element, {
+        type: 'bar',
+        data: {
+            labels: ['Dom', 'Lun', 'Mar', 'Mié', 'Jue', 'Vie', 'Sáb'],
+            datasets: [{
+                label: 'Producción (L)',
+                data: [2340, 2280, 2450, 2380, 2420, 2200, 2150],
+                backgroundColor: [
+                    '#4caf50',
+                    '#2196f3',
+                    '#ff9800',
+                    '#f44336',
+                    '#9c27b0',
+                    '#607d8b',
+                    '#795548'
+                ],
+                borderWidth: 1,
+                borderRadius: 5
+            }]
+        },
+        options: {
+            responsive: true,
+            maintainAspectRatio: false,
+            plugins: {
+                legend: {
+                    display: false
                 }
-            }, 200);
-        });
-
-    </script>
-    <!-- Materialize JavaScript -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
-
-    <script>
-        // Initialize Materialize components
-        document.addEventListener('DOMContentLoaded', function () {
-            // Initialize modals
-            var modals = document.querySelectorAll('.modal');
-            M.Modal.init(modals);
-
-            // Initialize select dropdowns
-            var selects = document.querySelectorAll('select');
-            M.FormSelect.init(selects);
-
-
-            // Form submission handler
-            document.getElementById('form-nuevo-ganado').addEventListener('submit', function (e) {
-                e.preventDefault();
-
-                // Get form data
-                const formData = new FormData(this);
-                const ganadoData = {};
-
-                for (let [key, value] of formData.entries()) {
-                    ganadoData[key] = value;
+            },
+            scales: {
+                y: {
+                    beginAtZero: true,
+                    title: {
+                        display: true,
+                        text: 'Litros'
+                    }
                 }
+            },
+            layout: {
+                padding: 10
+            }
+        }
+    });
+}
 
-                // Add timestamp
-                ganadoData.fecha_registro = new Date().toISOString();
+// Doughnut Chart - estado de salud
+function createDoughnutChart() {
+    const element = document.getElementById('doughnutChart').getContext('2d');
 
-                // Here you would typically send the data to your backend
-                console.log('Datos del ganado a registrar:', ganadoData);
+    doughnutChart = new Chart(element, {
+        type: 'doughnut',
+        data: {
+            labels: ['Saludable', 'En Revisión', 'Tratamiento', 'Recuperación'],
+            datasets: [{
+                data: [85, 8, 4, 3],
+                backgroundColor: [
+                    '#4caf50',
+                    '#ff9800',
+                    '#f44336',
+                    '#2196f3'
+                ],
+                borderWidth: 3,
+                borderColor: '#fff'
+            }]
+        },
+        options: {
+            responsive: true,
+            maintainAspectRatio: false,
+            plugins: {
+                legend: {
+                    position: 'bottom'
+                }
+            },
+            cutout: '60%',
+            layout: {
+                padding: 10
+            }
+        }
+    });
+}
 
-                // Show success message
-                M.toast({
-                    html: '<i class="material-icons left">check_circle</i>Ganado registrado exitosamente',
-                    classes: 'green',
-                    displayLength: 4000
-                });
+// Generate sample production data
+function generateProductionData() {
+    const period = document.getElementById('chart-period').value;
+    const days = parseInt(period);
+    const labels = [];
+    const values = [];
 
-                // Close modal and reset form
-                var modalInstance = M.Modal.getInstance(document.getElementById('modal-nuevo-ganado'));
-                modalInstance.close();
-                this.reset();
+    for (let i = days - 1; i >= 0; i--) {
+        const date = new Date();
+        date.setDate(date.getDate() - i);
+        labels.push(date.toLocaleDateString('es-ES', { month: 'short', day: 'numeric' }));
 
-                // Reinitialize selects after reset
-                setTimeout(() => {
-                    var selects = document.querySelectorAll('select');
-                    M.FormSelect.init(selects);
-                }, 100);
+        // generar ramdon data
+        const baseProduction = 2300;
+        const variation = Math.random() * 400 - 200; // ±200L variation
+        values.push(Math.round(baseProduction + variation));
+    }
 
-                // In a real application, you would make an AJAX call here:
-                /*
-                fetch('/api/ganado', {
-                    method: 'POST',
-                    headers: {
-                        'Content-Type': 'application/json',
-                    },
-                    body: JSON.stringify(ganadoData)
-                })
-                .then(response => response.json())
-                .then(data => {
-                    console.log('Success:', data);
-                    // Update the dashboard with new data
-                })
-                .catch((error) => {
-                    console.error('Error:', error);
-                    M.toast({html: 'Error al registrar el ganado', classes: 'red'});
-                });
-                /
-            });
-        });
-    </script>*/
+    return { labels, values };
+}
+
+// fx de actualizar graficos al filtrar 
+function updateCharts() {
+    const period = document.getElementById('chart-period').value;
+    const type = document.getElementById('chart-type').value;
+
+
+    const newData = generateProductionData();
+    lineChart.data.labels = newData.labels;
+    lineChart.data.datasets[0].data = newData.values;
+
+    switch (type) {
+        case 'production':
+            lineChart.data.datasets[0].label = 'Producción Diaria (L)';
+            break;
+        case 'health':
+            lineChart.data.datasets[0].label = 'Índice de Salud';
+            break;
+        case 'feed':
+            lineChart.data.datasets[0].label = 'Consumo de Alimento (kg)';
+            break;
+        case 'performance':
+            lineChart.data.datasets[0].label = 'Rendimiento Promedio (L/vaca)';
+            break;
+    }
+
+    lineChart.update();
+
+    M.toast({ html: `Gráficos actualizados para ${period} días`, classes: 'blue' });
+}
