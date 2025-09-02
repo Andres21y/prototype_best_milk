@@ -13,6 +13,9 @@ const Navbar = {
                 <a href="#email"><span class="email">pepitoperez@gmail.com</span></a>
             </div>
         </li>
+           <li>
+            <div class="divider"></div>
+        </li>
         <li><a href="#!" onclick="showSection('dashboard')" class="waves-effect">
                 <i class="material-icons">dashboard</i>Dashboard
             </a></li>
@@ -49,7 +52,7 @@ const Navbar = {
         <li>
             <div class="divider"></div>
         </li>
-        <div style="margin-top: auto; ">
+        <div>
             <li>
                 <a href="#!" onclick="showSection('reportes')" class="waves-effect">
                     <i class="material-icons">assessment</i>Reportes
