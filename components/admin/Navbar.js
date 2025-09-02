@@ -7,7 +7,7 @@ const Navbar = {
                 <div class="background bg_user_view"></div>
 
                 <a href="#" class="brand-logo grey-text text-darken-3">
-                    <img class="responsive-img" src="/assets/images/best_milk_main.png">
+                    <img class="responsive-img" src="assets/images/best_milk_main.png">
                 </a>
                 <a href="#name"><span class="name">Pepito</span></a>
                 <a href="#email"><span class="email">pepitoperez@gmail.com</span></a>
