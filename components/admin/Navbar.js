@@ -1,5 +1,5 @@
-const Navbar ={
-    render(){
+const Navbar = {
+    render() {
         return `
     <ul id="slide-out" class="sidenav sidenav-fixed">
          <li>
@@ -49,11 +49,12 @@ const Navbar ={
         <li>
             <div class="divider"></div>
         </li>
-        <li style="margin-top: auto; min-height:100svh"><a href="#!" onclick="showSection('reportes')" class="waves-effect">
-                <i class="material-icons">assessment</i>Reportes
-            </a></li>
+        <div style="margin-top: auto; ">
+        <li><a href="#!" onclick="showSection('reportes')" class="waves-effect">
+        <i class="material-icons">assessment</i>Reportes
+        </a></li>
         <li><a href="#!" onclick="showSection('config')" class="waves-effect">
-                <i class="material-icons">settings</i>Configuración
+        <i class="material-icons">settings</i>Configuración
             </a></li>
         <li>
             <div class="divider"></div>
@@ -61,8 +62,9 @@ const Navbar ={
         <li>
             <a href="#!" class="waves-effect red-text" onclick="showlogout()">
                 <i class="material-icons">exit_to_app</i>Cerrar Sesión
-            </a>
+                </a>
         </li>
+        </div>
     </ul>
 
         `;
