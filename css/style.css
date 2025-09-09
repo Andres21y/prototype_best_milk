@@ -148,7 +148,7 @@ nav {
 }
 
 .feature-card {
-   background-color: #fff;
+    background-color: #fff;
     padding: 17px 25px;
     border-radius: 15px;
     transition: all 0.3s ease;
@@ -230,4 +230,9 @@ nav {
 /*--- Grid ---*/
 .img_gallery {
     border-radius: 5px;
+}
+
+.cimg>img{
+height: 200px;
+width: 345px !important;
 }

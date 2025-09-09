@@ -66,35 +66,35 @@ const Dashboard = {
 
 <div class="row">
     <div class="col s12">
-        <div class="card">
+        <div class="card ">
             <div class="card-content">
-                span class="card-title">Acciones</span>
+                <span class="card-title">Acciones </span>
 
                 <div class="row btn_action_container" >
 
-                    <div class="col s12 l2 m5 btn-action">
-                        <button class="btn waves-effect waves-light green" style="width: 196px;" onclick="addGanado()">
+                    <div class="col s12 m5 l2 btn_content">
+                        <button class="btn btnq waves-effect waves-light green" onclick="addGanado()">
                             <i class="material-icons left">add</i>
                             Nuevo Ganado
                         </button>
                     </div>
                     
-                    <div class="col s12 m5 l2 btn-action">
-                        <button class="btn waves-effect waves-light blue" style="width: 196px;" onclick="addPersonal()">
+                    <div class="col s12 m5 l2 btn_content">
+                        <button class="btn btnq waves-effect waves-light blue" onclick="addPersonal()">
                             <i class="material-icons left">person_add</i>
                             Nuevo Personal
                         </button>
                     </div>
 
-                    <div class="col s12 m5 l2 btn-action">
-                        <button class="btn waves-effect waves-light orange" style="width: 196px;" onclick="showSection('produccion')">
+                    <div class="col s12 m5 l2 btn_content">
+                        <button class="btn btnq waves-effect waves-light orange" onclick="showSection('produccion')">
                             <i class="material-icons left">local_drink</i>
                             Registrar Ordeño
                         </button>
                     </div>
 
-                    <div class="col s12 m5 l2 btn-action" >
-                        <button class="btn waves-effect waves-light red"  onclick="showSection('salud')">
+                    <div class="col s12 m5 l2 btn_content" >
+                        <button class="btn btnq waves-effect waves-light red"  onclick="showSection('salud')">
                             <i class="material-icons left">healing</i>
                             Alerta Médica
                         </button>

@@ -2,7 +2,6 @@ const Footer = {
     render(config = {}) {
         const {
             brandName = "<img class=responsive-img src=assets/images/best_milk_main.png>",
-            description = "La plataforma que necesitas para llevar tu negocio al siguiente nivel.",
             sections = [
                 {
                     title: "Producto",
@@ -23,8 +22,9 @@ const Footer = {
                 {
                     title: "Acceso Rápido",
                     links: [
-                        { text: "Iniciar Sesión", href: "#", onclick: "navigateTo('login')" },
-                        { text: "Registrarse", href: "#", onclick: "navigateTo('signup')" }
+                        { text: "Terminos y condiciones", href: "#", onclick: "navigateTo('Terms')" },
+                        { text: "Política de  privacidad", href: "#", onclick: "navigateTo('Politicy')" },
+                        { text: "Social", href: "#", onclick: "navigateTo('Social')" }
                     ]
                 }
             ],
@@ -49,7 +49,6 @@ const Footer = {
                     <div class="row">
                         <div class="col s12 m3">
                             <h5 class="brand-logo">${brandName}</h5>
-                            <p class="grey-text text-lighten-1">${description}</p>
                         </div>
                         ${sectionsHTML}
                     </div>

@@ -1,32 +1,15 @@
 const Cta = {
-    render(config = {}) {
-        const {
-            title = "¿Listo para comenzar?",
-            subtitle = "Únete a miles de usuarios que ya confían en nuestra plataforma",
-            primaryBtn = "Crear Cuenta Gratis",
-            secondaryBtn = "Ver Demo"
-        } = config;
-        
+    render() {
+
         return `
-            <section class="cta-section white white-text valign-wrapper" style="height:400px">
-                <div class="container valign">
-                    <div class="row">
-                        <div class="col s12 center-align">
-                            <h2 class="section-title">${title}</h2>
-                            <p class="hero-subtitle">${subtitle}</p>
-                            
-                            <div class="cta-buttons">
-                                <a href="#" onclick="navigateTo('signup')" class="btn-large btn-large-custom white indigo-text waves-effect waves-light">
-                                    ${primaryBtn}
-                                </a>
-                                <a href="#" onclick="showDemo()" class="btn-large btn-large-custom transparent white-text waves-effect waves-light" style="border: 2px solid white;">
-                                    ${secondaryBtn}
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="divider"></div>
-                </div>
+            <section class="cta-section white" style="height:400px">
+                <div class="carousel">
+    <a class="carousel-item cimg" href="#one!"><img src="/assets/images/breed/jersey.jpg"></a>
+    <a class="carousel-item cimg" href="#two!"><img src="/assets/images/breed/ayrshire.jpg"></a>
+    <a class="carousel-item cimg" href="#three!"><img src="/assets/images/breed/holstein.jpg"></a>
+    <a class="carousel-item cimg" href="#four!"><img src="/assets/images/cows.jpg"></a>
+    <a class="carousel-item cimg" href="#five!"><img src="/assets/images/main_ganado.jpeg"></a>
+  </div>
             </section>
         `;
     }

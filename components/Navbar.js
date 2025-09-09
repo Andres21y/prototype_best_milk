@@ -9,7 +9,8 @@ const Navbar = {
                                 <i class="material-icons">menu</i>
                             </a>
                             <ul class="right hide-on-med-and-down">
-                                <li><a href="#" onclick="navigateTo('contac')" class="grey-text text-darken-4">Contac</a></li>
+                                <li><a href="#" onclick="navigateTo('acerca')" class="grey-text text-darken-4">Acerca de</a></li>
+                                <li><a href="#" onclick="navigateTo('contac')" class="grey-text text-darken-4">Contacto</a></li>
                                 <li><a href="#" onclick="navigateTo('login')" class="grey-text text-darken-4">Iniciar Sesión</a></li>
                                 <li><a href="#" onclick="navigateTo('signup')" class="btn indigo darken-1 white-text">Registrarse</a></li>
                             </ul>

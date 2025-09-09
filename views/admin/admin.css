@@ -17,6 +17,7 @@
          margin-left: 300px;
          max-width: none;
      }
+
  }
 
  .card {
@@ -60,6 +61,8 @@
      .sidenav-trigger {
          display: none;
      }
+     
+
  }
 
  .sidenav li>a {
@@ -101,6 +104,7 @@
      background: white;
      border-radius: 10px;
      min-width: 434px;
+     width: 100%;
  }
 
  .fab-menu {
@@ -183,16 +187,24 @@
  }
 
  .btn_action_container {
-     padding: 1rem;
      display: flex;
      flex-wrap: wrap;
-     justify-content: center;
-     align-items: center;
      gap: 1rem;
+     padding: 1rem;
+     border-radius: 8px;
+     background-color: #f0f8ff2d;
+ }
+ .btn_content{
+    width:100%;
+    text-align:center ;
+}
+
+.btnq{
+    min-width: 300px;  
  }
 
  .chart_control {
      background: aliceblue;
      border-radius: 5px;
      padding: 1rem 0;
- }
+ }  
